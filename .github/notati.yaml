@@ -1,0 +1,65 @@
+# Per-note sync config.
+# Sources are things to monitor for changes. State tracks what we last saw.
+
+einnsyn:
+  sources:
+    # API - verify endpoints and schema match what the note describes
+    - type: api
+      url: https://api.einnsyn.no/search?query=test&limit=1&expand=journalenhet
+      check: schema
+
+    - type: api
+      url: https://api.einnsyn.no/statistics?aggregateInterval=month
+      check: schema
+
+    - type: api
+      url: https://api.einnsyn.no/enhet?limit=1
+      check: schema
+
+    # TypeSpec source - the canonical API definition
+    - type: repo
+      url: https://github.com/felleslosninger/einnsyn-api-spec
+      path: typespec/
+      check: commits
+      last_commit: null
+
+    # TypeScript SDK - new methods/types signal API changes
+    - type: repo
+      url: https://github.com/felleslosninger/einnsyn-sdk-typescript
+      check: commits
+      last_commit: null
+
+    # Java SDK - same signal from another angle
+    - type: repo
+      url: https://github.com/felleslosninger/einnsyn-sdk-java
+      check: commits
+      last_commit: null
+
+  last_sync: 2026-03-19
+
+stortinget:
+  sources:
+    # API - verify key endpoints respond and schema matches
+    - type: api
+      url: https://data.stortinget.no/eksport/dagensrepresentanter?format=json
+      check: schema
+
+    - type: api
+      url: https://data.stortinget.no/eksport/partier?sesjonid=2025-2026&format=json
+      check: schema
+
+    - type: api
+      url: https://data.stortinget.no/eksport/talerliste?moteid=s2526&format=json
+      check: schema
+
+    - type: api
+      url: https://data.stortinget.no/eksport/sesjoner?format=json
+      check: content  # detect new sessions
+
+    # Docs page - detect if they publish API changes
+    - type: url
+      url: https://data.stortinget.no/
+      check: content
+      last_hash: null
+
+  last_sync: 2026-03-19
