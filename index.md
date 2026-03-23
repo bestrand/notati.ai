@@ -10,7 +10,6 @@
 - [hybasapi](notes/hybasapi/SKILL.md)              Bathymetry survey coverage in Norwegian waters via Kartverket OGC API.
 - [kartkatalog](notes/kartkatalog/SKILL.md)        Spatial data catalogue: find datasets, WMS/WFS services on Geonorge.
 - [kystverket](notes/kystverket/SKILL.md)          Maritime infrastructure: fairways, pilot stations, speed limits via Kystverket WFS.
-- [lovdata](notes/lovdata/SKILL.md)                Norwegian laws and regulations via Lovdata API (requires API key).
 - [met-weather](notes/met-weather/SKILL.md)        Weather forecasts, nowcast, sunrise times via MET Norway API.
 - [miljodir](notes/miljodir/SKILL.md)              Environmental geodata: protected areas, nature types, predators via Miljødirektoratet.
 - [ngu](notes/ngu/SKILL.md)                        Geological data: radon, loose deposits, seabed, groundwater via NGU.
